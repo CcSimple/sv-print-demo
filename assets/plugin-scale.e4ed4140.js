@@ -1,0 +1,8 @@
+var f=Object.defineProperty,u=Object.getOwnPropertySymbols,m=Object.prototype.hasOwnProperty,d=Object.prototype.propertyIsEnumerable,l=(t,e,n)=>e in t?f(t,e,{enumerable:!0,configurable:!0,writable:!0,value:n}):t[e]=n,p=(t,e)=>{for(var n in e||(e={}))m.call(e,n)&&l(t,n,e[n]);if(u)for(var n of u(e))d.call(e,n)&&l(t,n,e[n]);return t};const h=({Config:t,OptionItems:e,hinnn:n,hiprint:v,name:c})=>{t.registerItems([function(){function i(){this.name="scale"}return i.prototype.css=function(r,s){return r&&r.length&&s?r.css({transform:"scale("+s+")","transform-origin":"0 0"}):null},i.prototype.createTarget=function(r,s,b){return this.target=globalThis.$(`<div class="hiprint-option-item hiprint-option-item-row">
+        <div class="hiprint-option-item-label">
+        ${c||"\u7F29\u653E"}
+        </div>
+        <div class="hiprint-option-item-field">
+        <input type="number" class="auto-submit"/>
+        </div>
+    </div>`),this.target},i.prototype.getValue=function(){var r=this.target.find("input").val();if(r)return parseFloat(r.toString())},i.prototype.setValue=function(r){this.target.find("input").val(r)},i.prototype.destroy=function(){this.target.remove()},i}()]);let o=t.text.supportOptions.findIndex(i=>i.name==="transform");o>=0&&t.text.supportOptions.splice(o+1,0,{name:"scale",hidden:!1});const a=t.text.tabs.findIndex(i=>i.name==="\u6837\u5F0F");a>=0&&(o=t.text.tabs[a].options.findIndex(i=>i.name==="transform")),o&&t.text.tabs[a].options.splice(o+1,0,{name:"scale",hidden:!1})};function g(t){let e=p({},t);return{name:"scale",description:"\u300Ctext\u300D\u5143\u7D20 \u7F29\u653E\u53C2\u6570",hooks:[{hook:"init",name:"scale",description:"testF",priority:1,run:n=>h(p(p({},n),e))}],leastHiprintVersion:"0.1.0"}}export{g};
